@@ -10,7 +10,7 @@ from sklearn.model_selection import train_test_split
 
 import dataset
 import engine
-from model import get_model
+from model import get_alexnet, get_resnet, AlexNet
 
 if __name__ == "__main__":
     
@@ -25,7 +25,9 @@ if __name__ == "__main__":
     epochs = 10
 
     targets =df.target.values
-    model = get_model(pretrained=True)
+    # model = get_alexnet(pretrained=True)
+    # model = get_resnet(pretrained=True)
+    model = AlexNet()
     model.to(device)
 
     # mean and std of RGB channels
@@ -35,7 +37,6 @@ if __name__ == "__main__":
     aug = albumentations.Compose(
         [albumentations.Normalize(mean, std, max_pixel_value=255.0, always_apply=True)]
     )
-
     # aug = None
 
     train_images, valid_images, train_targets, valid_targets = train_test_split(

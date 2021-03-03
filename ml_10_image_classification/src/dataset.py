@@ -20,13 +20,13 @@ class ClassificationDataset:
     def __len__(self):
         return len(self.image_paths)
 
-    def __getitem__(self, item):
+    def __getitem__(self, index):
         """
-        For a given "item" index, return needed features for training
+        For a given index, return needed features for training
         """
-        image = Image.open(self.image_paths[item])
+        image = Image.open(self.image_paths[index])
         image = image.convert("RGB")
-        targets = self.targets[item]
+        targets = self.targets[index]
         # Resize if needed
         if self.resize is not None:
             image = image.resize((self.resize[1], self.resize[0]), resample=Image.BILINEAR)
