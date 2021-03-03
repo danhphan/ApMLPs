@@ -25,7 +25,7 @@ if __name__ == "__main__":
     epochs = 10
 
     targets =df.target.values
-    model = get_model(pretrained=False)
+    model = get_model(pretrained=True)
     model.to(device)
 
     # mean and std of RGB channels
@@ -35,6 +35,8 @@ if __name__ == "__main__":
     aug = albumentations.Compose(
         [albumentations.Normalize(mean, std, max_pixel_value=255.0, always_apply=True)]
     )
+
+    # aug = None
 
     train_images, valid_images, train_targets, valid_targets = train_test_split(
         images, targets, stratify=targets, random_state=42
