@@ -21,13 +21,7 @@ def create_dataset(train_df, image_dir):
         img_path = os.path.join(image_dir, img_id)
         # Open image and resize
         image = Image.open(img_path + ".png")
-        image = image.resize((256,256), resample=Image.BILINEAR)
-        # Convert image to list
-        image = np.array(image).ravel()
-        # Append to images and tartgets lists
-        images.append(image)
-        targets.append(int(row["target"]))
-    
+        image = image.resize((256,256), resample=model
     # Convert list of list of images to numpy array
     images = np.array(images)
     print(images.shape)
