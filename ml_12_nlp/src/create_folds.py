@@ -13,4 +13,4 @@ for f, (t_, v_) in enumerate(skf.split(X=df, y=y)):
     df.loc[v_, 'kfold'] = f
 
 
-df.to_csv("../data/imdb_folds.csv")
+df.to_csv("../data/imdb_folds.csv", index=False)
