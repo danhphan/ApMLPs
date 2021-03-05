@@ -21,6 +21,7 @@ def train(data_loader, model, optimizer, device):
         optimizer.zero_grad()
         outputs = model(inputs)
         loss = nn.BCEWithLogitsLoss()(outputs, targets.view(-1,1))
+        # loss = nn.BCELoss()(outputs, targets.view(-1,1)) # Try different loss function
         loss.backward()
         optimizer.step()
 
