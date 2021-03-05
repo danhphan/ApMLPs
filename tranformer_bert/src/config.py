@@ -1,15 +1,15 @@
-import transformer
+import transformers
 
 MAX_LEN = 512
 
-BATCH_SIZE = 32
+BATCH_SIZE = 4
 
-EPOCHS = 10
+EPOCHS = 3
 
-BERT_PATH = "../data/bert_base_uncased/"
+BERT_PATH = "bert-base-uncased"
 
-MODEL_PATH = "model.bin"
+MODEL_PATH = "./model.bin"
 
 TRAINING_FILE = "../data/imdb.csv"
 
-TOKENIZER = transformer.BertTokenizer.from_pretrained(BERT_PATH, do_lower_case=True)
+TOKENIZER = transformers.BertTokenizer.from_pretrained(BERT_PATH, do_lower_case=True)
