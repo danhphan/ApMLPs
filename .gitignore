@@ -16,3 +16,6 @@ __pycache__
 _*.ipynb
 
 .cache
+
+.vscode
+//.vscode
